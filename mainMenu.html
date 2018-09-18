@@ -18,33 +18,42 @@
       <a href="forum.html">Forums</a>
     </nav>
   </head>
-
   <body>
     <!-- header -->
     <header>
       <h1 align="center">Welcome to Color My World</h1>
     </header>
-    <!-- buttons -->
     <main>
-    <section>
-      <input type="button" value="Host Game" id="btn" size="30" onclick="" style="position:absolute;top:35%;left:40%;">
-      <input type="button" value="Join Game" id="btn" size="30" onclick="" style="position:absolute;top:35%;right:40%;">
-    <div>
-      <p align="center"> Host a new game, or Join an existing one.<p>
-    </div>
-    <!-- instructions section -->
-    <section>
-      <header>
-        <h3>Instructions:</h3>
-      </header>
+      <!-- buttons section -->
+      <section>
+        <a href="gamepage.html" class="button" style="position:absolute;top:23%;left:40%;"> Host Game </a>
+        <a href="gamepage.html" class="button" style="position:absolute;top:23%;right:40%;"> Join Game </a>
       <div>
-        <p align="left"> Each player is assigned a random hexadecimal color. Using it to color the canvas will award you points.<p>
+        <p align="center"> Host a new game, or Join an existing one.<p>
+        <br>
       </div>
-    </section>
-    <!-- video section -->
-    <section>
-      <div>
-        <h3 align="right"> Gameplay example
-    </section>
+      <!-- instructions and video section -->
+      <section>
+        <!-- game instructions -->
+        <div class="row">
+          <div class="column" style="background-color:#800000;">
+            <h3 style="color:#FFD700"> Instructions:</h3>
+            <p style="color:#FFD700">
+              Each player is assigned a random hexadecimal color. Using it to color the canvas will award you points. Use the points you've earned at the Store to buy new colors. Combine specific colors to get point multipliers when painting. When the timer ends, the player with the most points wins!
+            </p>
+          </div>
+          <!-- video example -->
+          <div class="column" style="background-color:#FFD700;">
+            <h3 style="color:#800000"> Gameplay example: </h3>
+            <video width="720" height="480" align="middle" muted autoplay loop>
+              <source src="./drawingExample.mp4"
+            </video>
+          </div>
+        </div>
+      </section>
     </main>
+    <!-- copyright footer -->
+    <footer>
+      Copyright © Color My World 424
+    </footer>
   </body>
