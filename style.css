@@ -47,7 +47,7 @@ video {
   height: auto;
 }
 
-/* creates button that can links to a specified html file */
+/* button class that can link to a specified html file */
 a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -55,6 +55,13 @@ a.button {
 
     text-decoration: none;
     color: initial;
+}
+
+/* divider class to add spacing between objects */
+.divider {
+  width: 300px;
+  height: auto;
+  display: inline-block;
 }
 
 .topnav {
