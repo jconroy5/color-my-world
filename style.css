@@ -26,6 +26,19 @@ body {
   /*position: absolute;*/
 }
 
+/*creates two equal columns which float next to each other*/
+.column {
+    float: left;
+    width: 50%;
+}
+
+/*clears floats after the columns*/
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #75B8C8;
