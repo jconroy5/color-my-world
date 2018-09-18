@@ -29,8 +29,9 @@ body {
 /* creates two equal columns which float next to each other */
 .column {
     float: left;
+    display: table-cell;
     padding: 10px;
-    width: 50%;
+    width: 48%;
 }
 
 /* clears floats after the columns */
