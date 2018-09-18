@@ -26,17 +26,24 @@ body {
   /*position: absolute;*/
 }
 
-/*creates two equal columns which float next to each other*/
+/* creates two equal columns which float next to each other */
 .column {
     float: left;
+    padding: 10px;
     width: 50%;
 }
 
-/*clears floats after the columns*/
+/* clears floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
+}
+
+/* enables responsive video resolution */
+video {
+  width: 100%;
+  height: auto;
 }
 
 .topnav {
