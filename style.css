@@ -30,8 +30,8 @@ body {
 .column {
     float: left;
     display: table-cell;
-    padding: 10px;
-    width: 48%;
+    padding: 0px;
+    width: 50%;
 }
 
 /* clears floats after the columns */
