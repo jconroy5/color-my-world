@@ -43,7 +43,7 @@ body {
 
 /* enables responsive video resolution */
 video {
-  width: 100%;
+  width: 95%;
   height: auto;
 }
 
@@ -63,6 +63,20 @@ a.button {
   height: auto;
   display: inline-block;
 }
+
+/* class for interactive gifs, testing... */
+.splat {
+    height: 300px;
+    width: 300px;
+    background: url(".\splatter_22.png");
+    margin:auto; /*position the [div] on the center*/
+  }
+
+/* makes gif animate on mouse hover, testing... */
+.splat:hover {
+    cursor:pointer;
+    background: url(".\splatter_22.gif");
+  }
 
 .topnav {
   overflow: hidden;
