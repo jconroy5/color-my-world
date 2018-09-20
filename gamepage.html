@@ -21,6 +21,32 @@
       <h2 align="center"> For Placeholder Purposes </h2>
       <p align="center"> Temporary gamepage! </p>
     </header>
+    <!-- the canvas -->
+    <p align = "center">
+      <canvas id= "GameplayCanvas"
+      width = "1000"
+      height = "500"
+      style = "border:3px solid #000000;"
+      text-align = "center">
+        Your browser does not support the canvas element.
+      </canvas></p>
+      <script align = "center">
+      var canvas = document.getElementById("GameplayCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.fillRect(0,0,1000,500);
+      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.fillRect(100,50,800,400);
+      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.fillRect(200,100,600,300);
+      ctx.moveTo(0,0);
+      ctx.lineTo(1000,500);
+      ctx.stroke();
+      </script>
+      <FORM align ="center">
+          <INPUT TYPE="Change the colors!" onClick="history.go(0)" VALUE="Change the colors!">
+      </FORM>
+
     <footer>
       Copyright © Color My World 424
     </footer>
