@@ -111,6 +111,37 @@ a.button {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+/* forum table edits */
+.forumtable {
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  display: table;
+}
+
+.forumtable td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.forumtable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.forumtable th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: left;
+  background-color: #4F6D7A;
+  color: white;
+}
+
+.forumtable tr:hover {
+  background-color: #ddd;
+}
+
 #info {
   font-size: 22px;
   color: #ccc;
