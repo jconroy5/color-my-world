@@ -31,15 +31,16 @@
       text-align = "center">
         Your browser does not support the canvas element.
       </canvas></p>
-      <script align = "center">
+<section class = "gameScript">
+      <script>
       // grab the canvas element, get the context for API access and
       // preset some variables
       var canvas = document.querySelector( 'canvas' ),
           c = canvas.getContext( '2d' ),
           mouseX = 0,
           mouseY = 0,
-          width = 600,
-          height = 600,
+          width = 1000,
+          height = 500,
           colour = '#'+Math.floor(Math.random()*16777215).toString(16),
           mousedown = false;
 
@@ -78,6 +79,7 @@
       canvas.addEventListener( 'mouseup', function( event ) {
           mousedown = false;
       }, false );
+// download image button
       var downloadLink = document.createElement('a');
           downloadLink.innerHTML = 'Download image';
       downloadLink.addEventListener('click', function(ev) {
@@ -87,9 +89,12 @@
       document.body.appendChild(downloadLink);
 
       </script>
+</section>
+<div class = "reset">
       <FORM align ="center">
           <INPUT TYPE="Reset Button" onClick="history.go(0)" VALUE="Reset the canvas!">
       </FORM>
+</div>
     <footer>
       Copyright © Color My World 424
     </footer>

@@ -24,7 +24,7 @@
     <header>
       <h2 align="center"> Game Page 2</h2>
     </header>
-<div id="parent">
+<div align = "center">
       <script type="text/javascript">
         let type = "WebGL"
         if(!PIXI.utils.isWebGLSupported()){
@@ -122,18 +122,10 @@
         	var t3 = t * t2;
         	return (2 * t3 - 3 * t2 + 1) * p[0] + (t3 - 2 * t2 + t) * m[0] + ( -2 * t3 + 3 * t2) * p[1] + (t3 - t2) * m[1];
         }
-        var downloadLink = document.createElement('a');
-            downloadLink.innerHTML = 'Download image';
-        downloadLink.addEventListener('click', function(ev) {
-            downloadLink.href = canvas.toDataURL();
-            downloadLink.download = "mypainting.png";
-        }, false);
-        document.body.appendChild(downloadLink);
-
       </script>
   </div>
   <FORM align ="center">
-      <INPUT TYPE="Save a screenshot!" onClick="console.log()" VALUE="Save a Screenshot!">
+      <INPUT TYPE="Reset Button" onClick="history.go(0)" VALUE="Reset the canvas!">
   </FORM>
 
     <footer>
