@@ -10,7 +10,7 @@ font-family: 'Permanent Marker', cursive;
 }
 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: Permanent Marker, cursive;
+  font-family: 'Mukta Malar', sans-serif;
 }
 
 body {
@@ -63,20 +63,6 @@ a.button {
   height: auto;
   display: inline-block;
 }
-
-/* class for interactive gifs, testing... */
-.splat {
-    height: 300px;
-    width: 300px;
-    background: url(".\splatter_22.png");
-    margin:auto; /*position the [div] on the center*/
-  }
-
-/* makes gif animate on mouse hover, testing... */
-.splat:hover {
-    cursor:pointer;
-    background: url(".\splatter_22.gif");
-  }
 
 .topnav {
   overflow: hidden;
@@ -177,4 +163,58 @@ code {
   to {
     opacity: 0.4
   }
+}
+
+like {
+  padding: 5px;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 10pt;
+  border: 2px solid #4F6D7A;
+  color: #4F6D7A;
+}
+
+dislike {
+  padding: 5px;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 10pt;
+  border: 2px solid #4F6D7A;
+  color: #4F6D7A;
+}
+
+like1 {
+  padding: 5px;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 10pt;
+  border: 2px solid #4F6D7A;
+  color: #4F6D7A;
+}
+
+dislike1 {
+  padding: 5px;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 10pt;
+  border: 2px solid #4F6D7A;
+  color: #4F6D7A;
+}
+
+like2 {
+  padding: 5px;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 10pt;
+  border: 2px solid #4F6D7A;
+  color: #4F6D7A;
+}
+
+dislike2 {
+  padding: 5px;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  font-size: 10pt;
+  border: 2px solid #4F6D7A;
+  color: #4F6D7A;
 }
