@@ -12,6 +12,7 @@
     <!-- navigation elements -->
     <nav class="topnav">
       <a href="forum.html">Forums</a>
+      <a href="gamepage2.html">Gamepage2</a>
       <a class="active" href=#>Gamepage</a>
       <a href="index.html">Begin</a>
     </nav>
@@ -19,7 +20,7 @@
   <body>
     <header>
       <h2 align="center"> Game Page </h2>
-      <p align="center"> Temporary gamepage! </p>
+
     </header>
     <!-- the canvas -->
     <p align = "center">
@@ -31,22 +32,64 @@
         Your browser does not support the canvas element.
       </canvas></p>
       <script align = "center">
-      var canvas = document.getElementById("GameplayCanvas");
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
-      ctx.fillRect(0,0,1000,500);
-      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
-      ctx.fillRect(100,50,800,400);
-      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
-      ctx.fillRect(200,100,600,300);
-      ctx.moveTo(0,0);
-      ctx.lineTo(1000,500);
-      ctx.stroke();
+      // grab the canvas element, get the context for API access and
+      // preset some variables
+      var canvas = document.querySelector( 'canvas' ),
+          c = canvas.getContext( '2d' ),
+          mouseX = 0,
+          mouseY = 0,
+          width = 600,
+          height = 600,
+          colour = '#'+Math.floor(Math.random()*16777215).toString(16),
+          mousedown = false;
+
+      // resize the canvas
+      canvas.width = width;
+      canvas.height = height;
+
+      function draw() {
+        if (mousedown) {
+          // set the colour
+          c.fillStyle = colour;
+          // start a path and paint a circle of 20 pixels at the mouse position
+          c.beginPath();
+          c.arc( mouseX, mouseY, 10 , 0, Math.PI*2, true );
+          c.closePath();
+          c.fill();
+        }
+      }
+
+      // get the mouse position on the canvas (some browser trickery involved)
+      canvas.addEventListener( 'mousemove', function( event ) {
+        if( event.offsetX ){
+          mouseX = event.offsetX;
+          mouseY = event.offsetY;
+        } else {
+          mouseX = event.pageX - event.target.offsetLeft;
+          mouseY = event.pageY - event.target.offsetTop;
+        }
+        // call the draw function
+        draw();
+      }, false );
+
+      canvas.addEventListener( 'mousedown', function( event ) {
+          mousedown = true;
+      }, false );
+      canvas.addEventListener( 'mouseup', function( event ) {
+          mousedown = false;
+      }, false );
+      var downloadLink = document.createElement('a');
+          downloadLink.innerHTML = 'Download image';
+      downloadLink.addEventListener('click', function(ev) {
+          downloadLink.href = canvas.toDataURL();
+          downloadLink.download = "mypainting.png";
+      }, false);
+      document.body.appendChild(downloadLink);
+
       </script>
       <FORM align ="center">
-          <INPUT TYPE="Change the colors!" onClick="history.go(0)" VALUE="Change the colors!">
+          <INPUT TYPE="Reset Button" onClick="history.go(0)" VALUE="Reset the canvas!">
       </FORM>
-
     <footer>
       Copyright © Color My World 424
     </footer>
