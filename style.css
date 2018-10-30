@@ -64,20 +64,6 @@ a.button {
   display: inline-block;
 }
 
-/* class for interactive gifs, testing... */
-.splat {
-    height: 300px;
-    width: 300px;
-    background: url(".\splatter_22.png");
-    margin:auto; /*position the [div] on the center*/
-  }
-
-/* makes gif animate on mouse hover, testing... */
-.splat:hover {
-    cursor:pointer;
-    background: url(".\splatter_22.gif");
-  }
-
 .topnav {
   overflow: hidden;
   background-color: #75B8C8;
