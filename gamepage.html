@@ -135,6 +135,14 @@
             }
         }
     }
+    // download image button
+          var downloadLink = document.createElement('a');
+              downloadLink.innerHTML = 'Download image';
+          downloadLink.addEventListener('click', function(ev) {
+              downloadLink.href = canvas.toDataURL();
+              downloadLink.download = "mypainting.png";
+          }, false);
+          document.body.appendChild(downloadLink);
     </script>
     <body onload="init()">
         <canvas id="can" width="1000%" height="400%" style="border:3px solid;background:white;"></canvas>
