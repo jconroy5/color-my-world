@@ -20,81 +20,144 @@
   <body>
     <header>
       <h2 align="center"> Game Page </h2>
-
     </header>
-    <!-- the canvas -->
-    <p align = "center">
-      <canvas id= "GameplayCanvas"
-      width = "1000"
-      height = "500"
-      style = "border:3px solid #000000;"
-      text-align = "center">
-        Your browser does not support the canvas element.
-      </canvas></p>
-<section class = "gameScript">
-      <script>
-      // grab the canvas element, get the context for API access and
-      // preset some variables
-      var canvas = document.querySelector( 'canvas' ),
-          c = canvas.getContext( '2d' ),
-          mouseX = 0,
-          mouseY = 0,
-          width = 1000,
-          height = 500,
-          colour = '#'+Math.floor(Math.random()*16777215).toString(16),
-          mousedown = false;
+    <script type="text/javascript">
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
 
-      // resize the canvas
-      canvas.width = width;
-      canvas.height = height;
+    var x = "black",
+        y = 2;
 
-      function draw() {
-        if (mousedown) {
-          // set the colour
-          c.fillStyle = colour;
-          // start a path and paint a circle of 20 pixels at the mouse position
-          c.beginPath();
-          c.arc( mouseX, mouseY, 10 , 0, Math.PI*2, true );
-          c.closePath();
-          c.fill();
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
+
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+    }
+
+    function color(obj) {
+        switch (obj.id) {
+            case "green":
+                x = "green";
+                break;
+            case "blue":
+                x = "blue";
+                break;
+            case "red":
+                x = "red";
+                break;
+            case "yellow":
+                x = "yellow";
+                break;
+            case "orange":
+                x = "orange";
+                break;
+            case "black":
+                x = "black";
+                break;
+            case "white":
+                x = "white";
+                break;
         }
-      }
+        if (x == "white") y = 14;
+        else y = 2;
 
-      // get the mouse position on the canvas (some browser trickery involved)
-      canvas.addEventListener( 'mousemove', function( event ) {
-        if( event.offsetX ){
-          mouseX = event.offsetX;
-          mouseY = event.offsetY;
-        } else {
-          mouseX = event.pageX - event.target.offsetLeft;
-          mouseY = event.pageY - event.target.offsetTop;
+    }
+
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
         }
-        // call the draw function
-        draw();
-      }, false );
+    }
 
-      canvas.addEventListener( 'mousedown', function( event ) {
-          mousedown = true;
-      }, false );
-      canvas.addEventListener( 'mouseup', function( event ) {
-          mousedown = false;
-      }, false );
-// download image button
-      var downloadLink = document.createElement('a');
-          downloadLink.innerHTML = 'Download image';
-      downloadLink.addEventListener('click', function(ev) {
-          downloadLink.href = canvas.toDataURL();
-          downloadLink.download = "mypainting.png";
-      }, false);
-      document.body.appendChild(downloadLink);
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
 
-      </script>
-</section>
-<div class = "reset">
-      <FORM align ="center">
-          <INPUT TYPE="Reset Button" onClick="history.go(0)" VALUE="Reset the canvas!">
-      </FORM>
-</div>
+    function findxy(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+                draw();
+            }
+        }
+    }
+    // download image button
+          var downloadLink = document.createElement('a');
+              downloadLink.innerHTML = 'Download image';
+          downloadLink.addEventListener('click', function(ev) {
+              downloadLink.href = canvas.toDataURL();
+              downloadLink.download = "mypainting.png";
+          }, false);
+          document.body.appendChild(downloadLink);
+    </script>
+    <body onload="init()">
+        <canvas id="can" width="1000%" height="400%" style="border:3px solid;background:white;"></canvas>
+        <div style="position:absolute;top:25%;right:4%;">Color Palette</div>
+        <div style="position:absolute;top:30%;right:8%;width:30px;height:30px;background:green;" id="green" onclick="color(this)"></div>
+        <div style="position:absolute;top:30%;right:4%;width:30px;height:30px;background:blue;" id="blue" onclick="color(this)"></div>
+        <div style="position:absolute;top:38%;right:8%;width:30px;height:30px;background:red;" id="red" onclick="color(this)"></div>
+        <div style="position:absolute;top:38%;right:4%;width:30px;height:30px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        <div style="position:absolute;top:46%;right:8%;width:30px;height:30px;background:orange;" id="orange" onclick="color(this)"></div>
+        <div style="position:absolute;top:46%;right:4%;width:30px;height:30px;background:black;" id="black" onclick="color(this)"></div>
+        <div style="position:absolute;top:70%;right:6%;">Eraser</div>
+        <div style="position:absolute;top:75%;right:5%;width:60px;height:30px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+        <input type="button" value="Clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:40%;left:6%;">
     <footer>
       Copyright © Chroma 424
     </footer>
