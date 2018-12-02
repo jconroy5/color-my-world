@@ -128,6 +128,24 @@ a.button {
   background-color: #ddd;
 }
 
+INPUT{
+  padding: 5px;
+  background: transparent;
+  border: 5px solid #4F6D7A;
+  color: #4F6D7A;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-family: 'Mukta Malar', sans-serif;
+  background: #f8f8f8;
+  align-content: center;
+}
+body.downloadLink {
+   margin-left: 3%;
+   margin-right: 3%;
+   border: 5px solid #4F6D7A;
+   width: 50%;
+   background-color: blue;
+}
 #info {
   font-size: 22px;
   color: #ccc;
