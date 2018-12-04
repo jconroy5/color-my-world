@@ -167,13 +167,27 @@ INPUT{
   align-content: center;
 }
 
-downloadLink {
+downloadLink.innerHTML {
    margin-left: 3%;
    margin-right: 3%;
    border: 5px solid #4F6D7A;
    width: 50%;
    background-color: blue;
 }
+#palette {
+  border: 2px solid #4F6D7A;
+}
+
+/* #palettebox {
+  border: 3px solid;
+  width: 30px;
+  height: 300px;
+  float: right;
+  z-index: 99999999;
+  padding: 25px;
+  margin: 25px;
+} */
+
 #info {
   font-size: 22px;
   color: #ccc;
