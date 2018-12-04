@@ -6,12 +6,11 @@
 <link rel="stylesheet" href="./style.css" />
   <head>
     <title> Chroma </title>
-    <!-- <figure id="ourlogo">
+    <figure id="ourlogo">
       <img src="./Chroma_Logo.png" alt="our logo" align="center" width=250 height=30>
-    </figure> -->
+    </figure>
     <!-- navigation elements -->
     <nav class="topnav">
-      <img id="ourlogo" src="./Chroma_Logo.png" alt="our logo" align="center" width=22% height=22%>
       <a href="forum.html">Forums</a>
       <a href="gamepage2.html">Gamepage2</a>
       <a class="active" href=#>Gamepage</a>
@@ -22,27 +21,22 @@
     <header>
       <h2 align="center"> Game Page </h2>
     </header>
-    <!-- the canvas -->
-    <p align = "center">
-      <canvas id= "GameplayCanvas"
-      width = 1000
-      height = 500
-      style = "border:3px solid #000000;"
-      text-align = "center">
-        Your browser does not support the canvas element.
-      </canvas></p>
-<section class = "gameScript">
-      <script>
-      // grab the canvas element, get the context for API access and
-      // preset some variables
-      var canvas = document.querySelector( 'canvas' ),
-          c = canvas.getContext( '2d' ),
-          mouseX = 0,
-          mouseY = 0,
-          width = 1000,
-          height = 500,
-          colour = '#'+Math.floor(Math.random()*16777215).toString(16),
-          mousedown = false;
+    <script type="text/javascript">
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "black",
+        y = 2;
+
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
 
         canvas.addEventListener("mousemove", function (e) {
             findxy('move', e)
@@ -163,7 +157,7 @@
         <div style="position:absolute;top:65%;right:6%;">Eraser</div>
         <div style="position:absolute;top:70%;right:5%;width:60px;height:30px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
         <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
-        <input type="button" value="Clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:80%;right:2%;">
+        <input type="button" value="Clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:80%;right:5%;">
     <footer>
       Copyright © Chroma 424
     </footer>
