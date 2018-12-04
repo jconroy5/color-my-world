@@ -6,11 +6,12 @@
 <link rel="stylesheet" href="./style.css" />
   <head>
     <title> Chroma </title>
-    <figure id="ourlogo">
+    <!-- <figure id="ourlogo">
       <img src="./Chroma_Logo.png" alt="our logo" align="center" width=250 height=30>
-    </figure>
+    </figure> -->
     <!-- navigation elements -->
     <nav class="topnav">
+      <img id="ourlogo" src="./Chroma_Logo.png" alt="our logo" align="center" width=22% height=22%>
       <a href="forum.html">Forums</a>
       <a href="gamepage2.html">Gamepage2</a>
       <a class="active" href=#>Gamepage</a>
@@ -136,7 +137,7 @@
             }
         }
     }
-    // download image button
+          // download image button
           var downloadLink = document.createElement('a');
               downloadLink.innerHTML = 'Download image';
           downloadLink.addEventListener('click', function(ev) {
@@ -157,7 +158,7 @@
         <div style="position:absolute;top:65%;right:6%;">Eraser</div>
         <div style="position:absolute;top:70%;right:5%;width:60px;height:30px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
         <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
-        <input type="button" value="Clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:80%;right:5%;">
+        <input type="button" value="Clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:80%;right:2%;">
     <footer>
       Copyright © Chroma 424
     </footer>
